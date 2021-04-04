@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <iostream>
+#include <vcl.h>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class UAbonentList {
 		vector<UnicodeString> as_str() {
 			vector<UnicodeString> r;
 			for (multimap<UnicodeString, UnicodeString>::iterator it=mm.begin(); it!=mm.end(); ++it) {
-				UnicodeString str = (*it).first + " " + (*it).second.c_str();
+				UnicodeString str = (*it).first + " " + (*it).second;
 				r.push_back(str);
 			}
             return r;
@@ -30,7 +31,7 @@ class UAbonentList {
 		void rem(int index) {
 			auto it = mm.begin();
 			for (int i = 0; i < index; i++) {
-                it++;
+				it++;
 			}
             mm.erase(it);
 		}
@@ -44,4 +45,11 @@ class UAbonentList {
             }
 		}
 
+		pair<UnicodeString, UnicodeString> get_at(int index){
+			auto it = mm.begin();
+            for (int i = 0; i < index; i++) {
+				it++;
+			}
+			return make_pair((*it).first, (*it).second);
+		}
 };

@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = #1058#1077#1083#1077#1092#1086#1085#1085#1072#1103' '#1082#1085#1080#1075#1072
   ClientHeight = 578
   ClientWidth = 665
   Color = clBtnFace
@@ -89,6 +89,7 @@ object Form1: TForm1
     Height = 25
     Caption = #1048#1079#1084#1077#1085#1080#1090#1100
     TabOrder = 6
+    OnClick = Button4Click
   end
   object Button5: TButton
     Left = 583
@@ -97,6 +98,7 @@ object Form1: TForm1
     Height = 25
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     TabOrder = 7
+    OnClick = Button5Click
   end
   object Button6: TButton
     Left = 502

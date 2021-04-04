@@ -1,12 +1,13 @@
 //---------------------------------------------------------------------------
-
-#include <vcl.h>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <vcl.h>
 #pragma hdrstop
 
 #include "Unit1.h"
 #include "UAbonentList.cpp"
+#include "Unit2.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -85,7 +86,49 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 	// button6 click find
 	UnicodeString fkey = Form1->Edit3->Text;
 	int index = book.find(fkey);
-    Form1->ListBox1->ItemIndex = index;
+	if (index == -1) {
+		ShowMessage("Не найдено.");
+	} else {
+		Form1->ListBox1->ItemIndex = index;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button5Click(TObject *Sender)
+{
+	// button5 click save
+	std::wofstream out_file("book.txt");
+    std::vector<UnicodeString> data;
+	data = book.as_str();
+	if (out_file.is_open()) {
+		for (auto const& z: data) {
+            out_file << z.c_str() << std::endl;
+		}
+		out_file.close();
+		ShowMessage("Сохранено.");
+		return;
+	} else {
+		ShowMessage("Ошибка.");
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+	// button4 click edit
+	int i = Form1->ListBox1->ItemIndex;
+	if (i == -1) {
+		return;
+	}
+	pair<UnicodeString, UnicodeString> p = book.get_at(i);
+	UnicodeString xname = p.first;
+	UnicodeString xphone = p.second;
+	TForm2 *Form = new TForm2(this, &xname, &xphone);
+	Form->ShowModal();
+
+	book.rem(i);
+    book.add(xname, xphone);
+	update_listbox();
 }
 //---------------------------------------------------------------------------
 
