@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.486,=C:\Users\login\Documents\CPPB Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.485,C:\Users\login\Documents\CPPB Projects\Project1.cbproj=C:\Users\login\Documents\CPPB Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,=C:\Users\login\Documents\CPPB Projects\Project1PCH1.h</Transaction>
+    <Transaction>2021.04.04 19:52:36.884,=C:\Users\login\Documents\CPPB Projects\File1.cpp</Transaction>
+    <Transaction>2021.04.04 19:53:01.761,C:\Users\login\Documents\CPPB Projects\UAbonentList.cpp=C:\Users\login\Documents\CPPB Projects\File1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
